@@ -5,7 +5,7 @@ The deafult Magento 2 behavior for product images is to load a spinner, then loa
 
 This module is quite simple in that it replaces the spinner with the first image in the gallery. So now the page should simply show the image and not make you feel like you are waiting for it to load.
 
-#Installation
+# Installation
 
 composer config repositories.xumulus-extended-warranty git git@bitbucket.org:internalxumulus/xumulus-extended-warranty.git
 composer require xumulus/module-warranty:dev-master -n
@@ -13,7 +13,7 @@ composer require xumulus/module-warranty:dev-master -n
 bin/magento setup:upgrade
 bin/magento setup:static-content:deploy
 
-#Usage
+# Usage
 
 Once installed the module should alter the image loading.  
 
