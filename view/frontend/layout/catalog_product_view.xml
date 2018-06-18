@@ -3,7 +3,7 @@
     <body>
 
         <referenceBlock name="product.info.media.image">
-		    <action method="setTemplate">
+		    <action method="setTemplate" ifconfig="xumulus_fastgalleryload/general/galleryload_enable">
 		        <argument name="template" xsi:type="string">Xumulus_FastGalleryLoad::product/view/gallery.phtml</argument>
 		    </action>
 		</referenceBlock>
