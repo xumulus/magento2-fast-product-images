@@ -9,7 +9,7 @@ This module is quite simple in that it replaces the spinner with the first image
 ```
 composer config repositories.magento2-fast-product-images git git@github.com:xumulus/magento2-fast-product-images.git
 composer require xumulus/magento2-fast-product-images:dev-master -n
-
+bin/magento module:enable Xumulus_FastGalleryLoad
 bin/magento setup:upgrade
 bin/magento setup:static-content:deploy
 ```
