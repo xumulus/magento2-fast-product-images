@@ -19,3 +19,10 @@ Once installed the module should alter the image loading.
 
 There are no admin settings, the module can be disable if you would like to return to the default behavior.
 
+#Theme Modifications
+
+If you are using a packaged theme and it includes a ../Magento_Catalog/templates/product/veiw/gallery.phtml it may require modification.
+
+#Sample Theme Modifications
+
+Add info about samples here
