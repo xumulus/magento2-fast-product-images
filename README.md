@@ -1,3 +1,7 @@
+Join us in our fight to kill image loaders and spinners they do nothing to improve the user experience. 
+
+Read more about it here. 
+
 # magento2-fast-product-images
 Magento 2 fast product images, removes loading image from product images.
 
@@ -15,14 +19,14 @@ bin/magento setup:static-content:deploy
 ```
 # Usage
 
-Once installed the module should alter the image loading.  
+Once installed the you will need to enable the module Stores->Config->Xumulus->FAst   
 
 There are no admin settings, the module can be disable if you would like to return to the default behavior.
 
-#Theme Modifications
+# Theme Modifications
 
 If you are using a packaged theme and it includes a ../Magento_Catalog/templates/product/veiw/gallery.phtml it may require modification.
 
-#Sample Theme Modifications
+# Sample Theme Modifications
 
 Add info about samples here
