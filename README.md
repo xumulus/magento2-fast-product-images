@@ -3,9 +3,9 @@ Join us in our fight to kill image loaders and spinners. They do nothing to impr
 Read more about it here.
 
 # magento2-fast-product-images
-Magento 2 fast product images removes loading image from product images.
+Magento 2 fast product images removes the loading image from product images.
 
-The deafult Magento 2 behavior for product images is to load a spinner, and then load all the images in the fotorama gallery. This results in the spinner being up until the dom loads, and js can take over and replace it. It makes even the fastest Magento 2 site seem slow. 
+The default Magento 2 behavior for product images is to load a spinner, and then load all the images in the fotorama gallery. This results in the spinner being up until the dom loads, and js can take over and replace it. It makes even the fastest Magento 2 site seem slow. 
 
 This module is quite simple in that it replaces the spinner with the first image in the gallery. So now, the page should simply show the image, and not make you feel like you are waiting for it to load.
 
@@ -25,7 +25,7 @@ There are no admin settings; the module can be disabled if you would like to ret
 
 # Theme Modifications
 
-If you are using a packaged theme and it includes a ../Magento_Catalog/templates/product/veiw/gallery.phtml, it may require modification.
+If you are using a packaged theme, and it includes a ../Magento_Catalog/templates/product/veiw/gallery.phtml, it may require modification.
 
 # Sample Theme Modifications
 
