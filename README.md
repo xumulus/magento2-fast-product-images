@@ -19,13 +19,13 @@ bin/magento setup:static-content:deploy
 ```
 # Usage
 
-Once installed, you will then need to enable the module Stores->Config->Xumulus->FAst   
+Once installed, you will then need to enable the module Stores->Config->Xumulus->Fast Gallery Load->
 
 There are no admin settings; the module can be disabled if you would like to return to the default behavior.
 
 # Theme Modifications
 
-If you are using a packaged theme, and it includes a ../Magento_Catalog/templates/product/veiw/gallery.phtml, it may require modification.
+If you are using a packaged theme, and it includes a ../Magento_Catalog/templates/product/view/gallery.phtml, it may require modification.
 
 # Sample Theme Modifications
 
