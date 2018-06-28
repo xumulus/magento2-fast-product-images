@@ -7,10 +7,11 @@
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Store/etc/config.xsd">
     <default>
-        <xumulus_fastgalleryload>
-            <general>
-                <galleryload_enable>1</galleryload_enable>
-            </general>
-        </xumulus_fastgalleryload>
+        <carriers>
+            <!-- carrier-config -->
+        </carriers>
+        <payment>
+            <!-- payment-config -->
+        </payment>
     </default>
 </config>
