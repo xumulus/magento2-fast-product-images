@@ -33,6 +33,11 @@ If you are using a packaged theme, and it includes a ../Magento_Catalog/template
 
 Genarally the approach is to copy the JavaScript rendered html after a page load, then integrate that into the gallery.phtml file so that it will render the html as needed the first time.  This allows us to not have to reengineer fotorama.js and allows things like configurable products to still change the image upon colort selection for example. 
 
+Much of these changes could be applied to your gallerty.phtm in your theme. 
+
 # Future Plans
 
 Were waiting a bit after this to determine next steps.  Contact use at sales@xumulus.com with questions.
+
+Release Notes:
+7/01/2018 Intial builds, expermentation. We understand some of this module could be optimized and code moved to block code etc but have not done that in the intial release.
