@@ -1,6 +1,8 @@
 Join us in our fight to kill image loaders and spinners. They do nothing to improve the user experience. 
 
-Read more about it here.
+Read more about it [here](https://xumulus.com/kill-the-loader-how-to-improve-your-magento-2-product-page-load-time/ "How to speed your Magento product page load").
+
+Uou can see it live [here](https://demo.xumulus.com/breathe-easy-tank.html)
 
 # magento2-fast-product-images
 Magento 2 fast product images removes the loading image from product images.
@@ -29,8 +31,8 @@ There are no admin settings; the module can be disabled if you would like to ret
 
 If you are using a packaged theme, and it includes a ../Magento_Catalog/templates/product/view/gallery.phtml, it may require modification.
 
-# Goals / Timeline
+Genarally the approach is to copy the JavaScript rendered html after a page load, then integrate that into the gallery.phtml file so that it will render the html as needed the first time.  This allows us to not have to reengineer fotorama.js and allows things like configurable products to still change the image upon colort selection for example. 
 
-6/26/2018 Creat Hack for Fotormama - not core updated etc, workable magento 2.1/2.2 solution
-Gather a bit of feedback, evaluate fotorama fork
-7/15/2018 - Reconvieng on next update
+# Future Plans
+
+Were waiting a bit after this to determine next steps.  Contact use at sales@xumulus.com with questions.
