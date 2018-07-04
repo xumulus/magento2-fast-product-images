@@ -5,7 +5,7 @@
 
 define([
     'jquery',
-    'fotorama/fotorama',
+    'Xumulus_FastGalleryLoad/js/fotorama/fotorama',
     'underscore',
     'matchMedia',
     'mage/template',
@@ -130,6 +130,7 @@ define([
                 isFullscreen: false,
                 api: null,
                 data: _.clone(config.data)
+
             };
             config.options.ratio = config.options.width / config.options.height;
             config.options.height = null;
@@ -160,7 +161,7 @@ define([
                     }
                 });
             }
-            $('div[fast-image="yes"]').remove();
+            
         },
 
         /**
@@ -308,6 +309,7 @@ define([
                     time: 0
                 });
             }
+
         },
 
         /**
@@ -499,7 +501,7 @@ define([
                             images.push(_.omit(item, '$navThumbFrame', '$navDotFrame', '$stageFrame', 'labelledby'));
                         });
                         
-                        $('div[fast-image="yes"]').remove();
+
                         return images;
                     },
 
