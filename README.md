@@ -2,7 +2,7 @@ Join us in our fight to kill image loaders and spinners. They do nothing to impr
 
 Read more about it [here](https://xumulus.com/kill-the-loader-how-to-improve-your-magento-2-product-page-load-time/ "How to speed your Magento product page load").
 
-Uou can see it live [here](https://demo.xumulus.com/breathe-easy-tank.html)
+You can see it live [here](https://demo.xumulus.com/breathe-easy-tank.html)
 
 # magento2-fast-product-images
 Magento 2 fast product images removes the loading image from product images.

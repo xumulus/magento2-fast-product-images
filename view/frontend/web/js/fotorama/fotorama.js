@@ -1218,6 +1218,14 @@ fotoramaVersion = '4.6.4';
     }
 
     function stubEvent($el, eventType) {
+        var isIOS = /ip(ad|hone|od)/i.test(window.navigator.userAgent);
+
+        if (isIOS && eventType === 'touchend') {
+            $el.on('touchend', function(e){
+                $DOCUMENT.trigger('mouseup', e);
+            })
+        }
+
         $el.on(eventType, function (e) {
             stopEvent(e, true);
 
@@ -2257,9 +2265,6 @@ fotoramaVersion = '4.6.4';
         function loadImg(indexes, type, specialMeasures, again) {
 
             eachIndex(indexes, type, function (i, index, dataFrame, $frame, key, frameData) {
-                if (type === 'navThumb'){
-                    return true;
-                }
 
                 if (!$frame) return;
 
@@ -2369,8 +2374,6 @@ fotoramaVersion = '4.6.4';
                     return;
                 }
 
-                
-
                 function waitAndLoad() {
                     var _i = 10;
                     waitFor(function () {
@@ -2397,10 +2400,10 @@ fotoramaVersion = '4.6.4';
                         }
                     })();
                 }
-                
+
                 frameData.state = '';
                 img.src = src;
-                
+
                 if (frameData.data.caption) {
                     img.alt = frameData.data.caption || "";
                 }
@@ -2491,27 +2494,14 @@ fotoramaVersion = '4.6.4';
                     $navDotFrame = $navDotFrame.add($frame);
                 } else if (type === 'navThumb') {
                     addNavFrameEvents(frame);
-                    console.log(i);
-                   frameData.$wrap = $frame.children(':first');
-                   frame.append(document.getElementById('fast-loder-'+i));
-                   var ele = document.getElementById('fast-main-'+i);
-                   if(ele){
-                        ele.remove(); 
-                   }
-                   //document.getElementById('fast-main-'+i).remove(); 
-                   $navThumbFrame = $navThumbFrame.add($frame);
+                    frameData.$wrap = $frame.children(':first');
+
+                    $navThumbFrame = $navThumbFrame.add($frame);
                     if (dataFrame.video) {
                         frameData.$wrap.append($videoPlay.clone());
                     }
                 }
             });
-            /*var fotoramaEle = 3 
-            for (var i = 1; i < fotoramaEle; i++) {
-               //console.log(document.getElementById('fast-loder-'+i));
-               addNavFrameEvents(document.getElementById('fast-loder-'+i));
-               console.log(document.getElementById('fast-loder-'+i));
-            }*/
-            
         }
 
         function callFit($img, measuresToFit) {
@@ -3884,7 +3874,7 @@ fotoramaVersion = '4.6.4';
 
     $.Fotorama.jst.thumb = function (v) {
         var __t, __p = '', __e = _.escape;
-        __p += '<div class="fotorama__nav__frame fotorama__nav__frame--thumb" tabindex="0" role="button" data-gallery-role="nav-frame" data-nav-type="thumb" aria-label>\r\n    </div>';
+        __p += '<div class="fotorama__nav__frame fotorama__nav__frame--thumb" tabindex="0" role="button" data-gallery-role="nav-frame" data-nav-type="thumb" aria-label>\r\n    <div class="fotorama__thumb">\r\n    </div>\r\n</div>';
         return __p
     };
 })(window, document, location, typeof jQuery !== 'undefined' && jQuery);
