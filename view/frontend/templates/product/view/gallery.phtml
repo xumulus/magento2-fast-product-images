@@ -1,6 +1,7 @@
 <?php
             $thumbwidth = $block->getImageAttribute('product_page_image_small', 'width');
             $thumbheight = $block->getImageAttribute('product_page_image_small', 'height');
+            
 ?>
 <style>
             .fotorama-item .fotorama__nav--thumbs .fotorama__nav__frame {
@@ -13,6 +14,11 @@
                 border-width: 2px;
                 margin-top: 2px
             }
+            @media only screen and (max-width: 767px) {
+                .fotorama__nav__frame--thumb{display: none;}
+                .fotorama__thumb-border{display: none;}
+                .fotorama__arr--prev{display: none;}
+            }
         </style>
 <div class="gallery-placeholder _block-content-loading" data-gallery-role="gallery-placeholder">
     <?php
@@ -21,20 +27,24 @@
             $mainImage = '';
             $mainMainImageTitle = '';
             $mainThumbHtml = '';
+            $mainThumbHtmlcount = 0;
             if(count($imagesData)>0){
                 foreach($imagesData as $key=>$value){
                     if(isset($value['isMain']) && $value['isMain'] == 1){
                         $mainImage = $value['img'];
                         $mainMainImageTitle = $value['caption'];
-                        $mainThumbHtml.='<div class="fotorama__nav__frame fotorama__nav__frame--thumb fotorama__active" tabindex="0" role="button" data-gallery-role="nav-frame" data-nav-type="thumb" aria-label="'.$value['caption'].'" style="width: '.$thumbwidth.'px" data-active="true" fast-image="yes" >
-                                <div class="fotorama__thumb fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img"><img src="'.$value['thumb'].'" alt="'.$value['caption'].'" aria-labelledby="labelledby1529299439448" class="fotorama__img" aria-hidden="false">
-                                </div>
-                            </div>';
+
+                        $mainThumbHtml.='<div class="fotorama__nav__frame fotorama__nav__frame--thumb fotorama__active" tabindex="0" role="button" data-gallery-role="nav-frame" data-nav-type="thumb" aria-label="" style="width: '.$thumbwidth.'px;" data-active="true" fast-image="yes" id="fast-main-'.$mainThumbHtmlcount.'">
+                            <div class="fotorama__thumb fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img" id="fast-loder-'.$mainThumbHtmlcount.'"><img src="'.$value['thumb'].'" alt="'.$value['caption'].'" class="fotorama__img" aria-hidden="false">
+                            </div>
+                        </div>';
+                        $mainThumbHtmlcount++;
                     }else{
-                        $mainThumbHtml.='<div class="fotorama__nav__frame fotorama__nav__frame--thumb" tabindex="0" role="button" data-gallery-role="nav-frame" data-nav-type="thumb" aria-label="'.$value['caption'].'" style="width: '.$thumbwidth.'px" data-active="true" fast-image="yes">
-                                <div class="fotorama__thumb fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img"><img src="'.$value['thumb'].'" alt="'.$value['caption'].'" aria-labelledby="labelledby1529299439448" class="fotorama__img" aria-hidden="false">
-                                </div>
-                            </div>';
+                        $mainThumbHtml.='<div class="fotorama__nav__frame fotorama__nav__frame--thumb" tabindex="0" role="button" data-gallery-role="nav-frame" data-nav-type="thumb" aria-label="" style="width: '.$thumbwidth.'px;" fast-image="yes" id="fast-main-'.$mainThumbHtmlcount.'">
+                            <div class="fotorama__thumb fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img" id="fast-loder-'.$mainThumbHtmlcount.'"><img src="'.$value['thumb'].'" alt="'.$value['caption'].'" class="fotorama__img" aria-hidden="false">
+                            </div>
+                        </div>';
+                        $mainThumbHtmlcount++;
                     }
                 }
 
@@ -44,7 +54,7 @@
     <div class="fotorama-item" data-gallery-role="gallery">
     <div data-gallery-role="fotorama__focusable-start" tabindex="-1"></div>
     <div class="fotorama__wrap fotorama__wrap--css3 fotorama__wrap--slide fotorama__wrap--toggle-arrows">
-        <div class="fotorama__stage" data-fotorama-stage="fotorama__stage" style="width: 707px; height: 566px;">
+        <div class="fotorama__stage" data-fotorama-stage="fotorama__stage" style="">
             <div class="fotorama__arr fotorama__arr--prev" tabindex="0" role="button" aria-label="Previous" data-gallery-role="arrow">
                 <div class="fotorama__arr__arr"></div>
             </div>
@@ -72,8 +82,8 @@
                     <div class="fotorama__thumb--icon"></div>
                 </div>
                 <div class="fotorama__nav__shaft">
-                    <div class="fotorama__thumb-border" style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px); width: <?php echo $thumbwidth;?>px; height: <?php echo $thumbheight?>px;"></div>
-                     <?php echo $mainThumbHtml;?>
+                    <div class="fotorama__thumb-border" style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px); width: 1px; height: <?php echo $thumbheight?>px;"></div>
+                    
                 </div>
                 <div class="fotorama__thumb__arr fotorama__thumb__arr--right fotorama__arr--disabled" role="button" aria-label="Next" data-gallery-role="arrow" tabindex = "-1">
                     <div class="fotorama__thumb--icon"></div>
@@ -99,13 +109,12 @@
     if (config.navtype === 'horizontal') {
         thumbBarHeight = config.thumbheight;
     }
-require(['jquery', 'jquery/ui'], function($){ 
+require(['jquery'], function($){ 
      var width = $('.fotorama-item').width();
      var ratio = config.width/config.height ;
      var height = Math.round(width/ratio);
      $('.fotorama__stage').css({'width': width, 'height': height});
  });
-  var data_ = <?php /* @escapeNotVerified */ echo $block->getGalleryImagesJson(); ?>
 </script>
 
 <script type="text/x-magento-init">
